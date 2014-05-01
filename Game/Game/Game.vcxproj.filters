@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="engine">
+      <UniqueIdentifier>{4f2e38b9-17c3-4c32-a356-c0a6644bb620}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game">
+      <UniqueIdentifier>{5a6f44a1-b42f-4c1c-b545-b08ceb108ea2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\application management">
+      <UniqueIdentifier>{ab95ac69-12db-4e21-b65f-b358a411350b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\renderer">
+      <UniqueIdentifier>{4e04a52b-b673-49c9-b288-d64aa039385f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\collision">
+      <UniqueIdentifier>{01c905a9-1c91-4788-ac82-b644f48bcf8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\particles">
+      <UniqueIdentifier>{bfb2bba4-02fc-4189-ba14-a4692e161516}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\input">
+      <UniqueIdentifier>{d4ff9545-2665-4cda-a687-e38da97607d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\sound">
+      <UniqueIdentifier>{d4a996ce-f7f1-4fa9-b0dd-19d3baaa6bcb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\third party">
+      <UniqueIdentifier>{c49dbea1-59b4-4dfb-8721-0e29e11fa24d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game\states">
+      <UniqueIdentifier>{ec960f83-80ea-4550-babe-9ac242805988}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\renderer\core">
+      <UniqueIdentifier>{c8591dfd-c15b-4eb7-b89e-3229a40f3a5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\objects">
+      <UniqueIdentifier>{048b16f1-1619-4671-ba69-0eeafdccc9af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\components">
+      <UniqueIdentifier>{a38229fb-9e2a-4dbe-b648-9aab275da295}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="engine\renderer\debug">
+      <UniqueIdentifier>{19a4e414-3c15-4d2a-94b0-71151ec70f15}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="code\WinMain.cpp" />
+    <ClCompile Include="code\engine\kStateSystem.cpp">
+      <Filter>engine\application management</Filter>
+    </ClCompile>
+    <ClCompile Include="code\engine\kWinApp.cpp">
+      <Filter>engine\application management</Filter>
+    </ClCompile>
+    <ClCompile Include="code\engine\kTimer.cpp">
+      <Filter>engine\application management</Filter>
+    </ClCompile>
+    <ClCompile Include="code\src\TestState.cpp">
+      <Filter>game\states</Filter>
+    </ClCompile>
+    <ClCompile Include="code\engine\kD3D9Handler.cpp">
+      <Filter>engine\renderer\core</Filter>
+    </ClCompile>
+    <ClCompile Include="code\engine\kRenderPass.cpp">
+      <Filter>engine\renderer\core</Filter>
+    </ClCompile>
+    <ClCompile Include="code\engine\kCamera.cpp">
+      <Filter>engine\renderer\core</Filter>
+    </ClCompile>
+    <ClCompile Include="code\engine\kRenderSystem.cpp">
+      <Filter>engine\renderer\core</Filter>
+    </ClCompile>
+    <ClCompile Include="code\engine\kIndexBuffer.cpp">
+      <Filter>engine\renderer\core</Filter>
+    </ClCompile>
+    <ClCompile Include="code\engine\kVertexBuffer.cpp">
+      <Filter>engine\renderer\core</Filter>
+    </ClCompile>
+    <ClCompile Include="code\engine\kGameObject.cpp">
+      <Filter>engine\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="code\engine\kTransformComponent.cpp">
+      <Filter>engine\components</Filter>
+    </ClCompile>
+    <ClCompile Include="code\engine\kCollisionLibrary.cpp">
+      <Filter>engine\collision</Filter>
+    </ClCompile>
+    <ClCompile Include="code\engine\kDebugDraw.cpp">
+      <Filter>engine\renderer\debug</Filter>
+    </ClCompile>
+    <ClCompile Include="code\engine\kRenderObjectDebug.cpp">
+      <Filter>engine\renderer\debug</Filter>
+    </ClCompile>
+    <ClCompile Include="code\engine\kRenderParams.cpp">
+      <Filter>engine\renderer\core</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="code\engine\windows.h">
+      <Filter>engine\third party</Filter>
+    </ClInclude>
+    <ClInclude Include="code\engine\kBaseState.h">
+      <Filter>engine\application management</Filter>
+    </ClInclude>
+    <ClInclude Include="code\engine\kStateSystem.h">
+      <Filter>engine\application management</Filter>
+    </ClInclude>
+    <ClInclude Include="code\engine\kWinApp.h">
+      <Filter>engine\application management</Filter>
+    </ClInclude>
+    <ClInclude Include="code\engine\kTimer.h">
+      <Filter>engine\application management</Filter>
+    </ClInclude>
+    <ClInclude Include="code\engine\directx9.h">
+      <Filter>engine\third party</Filter>
+    </ClInclude>
+    <ClInclude Include="code\src\TestState.h">
+      <Filter>game\states</Filter>
+    </ClInclude>
+    <ClInclude Include="code\engine\kD3D9Handler.h">
+      <Filter>engine\renderer\core</Filter>
+    </ClInclude>
+    <ClInclude Include="code\engine\kRenderPass.h">
+      <Filter>engine\renderer\core</Filter>
+    </ClInclude>
+    <ClInclude Include="code\engine\kCamera.h">
+      <Filter>engine\renderer\core</Filter>
+    </ClInclude>
+    <ClInclude Include="code\engine\kRenderObject.h">
+      <Filter>engine\renderer\core</Filter>
+    </ClInclude>
+    <ClInclude Include="code\engine\kRenderSystem.h">
+      <Filter>engine\renderer\core</Filter>
+    </ClInclude>
+    <ClInclude Include="code\engine\kIndexBuffer.h">
+      <Filter>engine\renderer\core</Filter>
+    </ClInclude>
+    <ClInclude Include="code\engine\kVertexBuffer.h">
+      <Filter>engine\renderer\core</Filter>
+    </ClInclude>
+    <ClInclude Include="code\engine\kMesh.h">
+      <Filter>engine\renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="code\engine\kObject.h">
+      <Filter>engine\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="code\engine\kComponent.h">
+      <Filter>engine\components</Filter>
+    </ClInclude>
+    <ClInclude Include="code\engine\kGameObject.h">
+      <Filter>engine\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="code\engine\kTransformComponent.h">
+      <Filter>engine\components</Filter>
+    </ClInclude>
+    <ClInclude Include="code\engine\kCollisionLibrary.h">
+      <Filter>engine\collision</Filter>
+    </ClInclude>
+    <ClInclude Include="code\engine\kCollisionVolumes.h">
+      <Filter>engine\collision</Filter>
+    </ClInclude>
+    <ClInclude Include="code\engine\kDebugDraw.h">
+      <Filter>engine\renderer\debug</Filter>
+    </ClInclude>
+    <ClInclude Include="code\engine\kRenderObjectDebug.h">
+      <Filter>engine\renderer\debug</Filter>
+    </ClInclude>
+    <ClInclude Include="code\engine\kRenderParams.h">
+      <Filter>engine\renderer\core</Filter>
+    </ClInclude>
+    <ClInclude Include="code\engine\memory_macros.h">
+      <Filter>engine\third party</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

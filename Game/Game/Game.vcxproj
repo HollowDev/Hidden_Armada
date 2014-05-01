@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B18B513A-7DF0-43FA-8DDD-8FE7E05C0FC7}</ProjectGuid>
+    <RootNamespace>Game</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(SolutionDir)\Lib\directx9\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\Lib\directx9\Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>$(SolutionDir)\Lib\directx9\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\Lib\directx9\Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="code\engine\kCamera.cpp" />
+    <ClCompile Include="code\engine\kCollisionLibrary.cpp" />
+    <ClCompile Include="code\engine\kD3D9Handler.cpp" />
+    <ClCompile Include="code\engine\kDebugDraw.cpp" />
+    <ClCompile Include="code\engine\kGameObject.cpp" />
+    <ClCompile Include="code\engine\kIndexBuffer.cpp" />
+    <ClCompile Include="code\engine\kRenderObjectDebug.cpp" />
+    <ClCompile Include="code\engine\kRenderParams.cpp" />
+    <ClCompile Include="code\engine\kRenderPass.cpp" />
+    <ClCompile Include="code\engine\kRenderSystem.cpp" />
+    <ClCompile Include="code\engine\kStateSystem.cpp" />
+    <ClCompile Include="code\engine\kTimer.cpp" />
+    <ClCompile Include="code\engine\kTransformComponent.cpp" />
+    <ClCompile Include="code\engine\kVertexBuffer.cpp" />
+    <ClCompile Include="code\engine\kWinApp.cpp" />
+    <ClCompile Include="code\src\TestState.cpp" />
+    <ClCompile Include="code\WinMain.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="code\engine\directx9.h" />
+    <ClInclude Include="code\engine\kBaseState.h" />
+    <ClInclude Include="code\engine\kCamera.h" />
+    <ClInclude Include="code\engine\kCollisionLibrary.h" />
+    <ClInclude Include="code\engine\kCollisionVolumes.h" />
+    <ClInclude Include="code\engine\kComponent.h" />
+    <ClInclude Include="code\engine\kD3D9Handler.h" />
+    <ClInclude Include="code\engine\kDebugDraw.h" />
+    <ClInclude Include="code\engine\kGameObject.h" />
+    <ClInclude Include="code\engine\kIndexBuffer.h" />
+    <ClInclude Include="code\engine\kMesh.h" />
+    <ClInclude Include="code\engine\kObject.h" />
+    <ClInclude Include="code\engine\kRenderObject.h" />
+    <ClInclude Include="code\engine\kRenderObjectDebug.h" />
+    <ClInclude Include="code\engine\kRenderParams.h" />
+    <ClInclude Include="code\engine\kRenderPass.h" />
+    <ClInclude Include="code\engine\kRenderSystem.h" />
+    <ClInclude Include="code\engine\kStateSystem.h" />
+    <ClInclude Include="code\engine\kTimer.h" />
+    <ClInclude Include="code\engine\kTransformComponent.h" />
+    <ClInclude Include="code\engine\kVertexBuffer.h" />
+    <ClInclude Include="code\engine\kWinApp.h" />
+    <ClInclude Include="code\engine\memory_macros.h" />
+    <ClInclude Include="code\engine\windows.h" />
+    <ClInclude Include="code\src\TestState.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
