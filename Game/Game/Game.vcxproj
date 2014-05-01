@@ -70,7 +70,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="code\engine\kCamera.cpp" />
+    <ClCompile Include="code\engine\kCollisionComponent.cpp" />
     <ClCompile Include="code\engine\kCollisionLibrary.cpp" />
+    <ClCompile Include="code\engine\kCollisionSystem.cpp" />
     <ClCompile Include="code\engine\kD3D9Handler.cpp" />
     <ClCompile Include="code\engine\kDebugDraw.cpp" />
     <ClCompile Include="code\engine\kGameObject.cpp" />
@@ -91,7 +93,10 @@
     <ClInclude Include="code\engine\directx9.h" />
     <ClInclude Include="code\engine\kBaseState.h" />
     <ClInclude Include="code\engine\kCamera.h" />
+    <ClInclude Include="code\engine\kCollisionComponent.h" />
     <ClInclude Include="code\engine\kCollisionLibrary.h" />
+    <ClInclude Include="code\engine\kCollisionResult.h" />
+    <ClInclude Include="code\engine\kCollisionSystem.h" />
     <ClInclude Include="code\engine\kCollisionVolumes.h" />
     <ClInclude Include="code\engine\kComponent.h" />
     <ClInclude Include="code\engine\kD3D9Handler.h" />

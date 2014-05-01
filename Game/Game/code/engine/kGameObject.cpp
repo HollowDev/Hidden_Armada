@@ -2,6 +2,7 @@
 #include "kComponent.h"
 #include "kTransformComponent.h"
 
+#include "k2DFoundationStack.h"
 #include "memory_macros.h"
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -45,9 +46,26 @@ Params:
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 void kGameObject::Update( float _timer )
 {
-	// TODO:: Push the transform onto the k2DFoundationStack
-	UpdateChildren( _timer );
-	UpdateComponents( _timer );
+	// Get ready to apply a transform to the stack
+	D3DXVECTOR2 pos		= D3DXVECTOR2(0.0f, 0.0f);
+	D3DXVECTOR2 scale	= D3DXVECTOR2(1.0f, 1.0f);
+	float rot			= 0.0f;
+
+	// Check to see if this object has a transform component to grab transform data from
+	if( m_Transform )
+	{
+		pos		= m_Transform->GetPosition();
+		scale	= m_Transform->GetScale();
+		rot		= m_Transform->GetRotation();
+	}
+
+	// Apply the object's transform to the stack
+	k2DFoundationStack::Push( &pos, &scale, &rot );
+	{
+		UpdateChildren( _timer );
+		UpdateComponents( _timer );
+	}
+	k2DFoundationStack::Pop();
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -96,7 +114,7 @@ Params:
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 void kGameObject::Dock( kComponent* _component )
 {
-	_component->SetOwner( this );
+	_component->OnDock( this );
 	m_Components.push_back( _component );
 
 	if( _component->GetType() == RTTI_kTransformComponent )
@@ -128,6 +146,9 @@ Params:
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 void kGameObject::Undock( kComponent* _component )
 {
+	// Assumes that this component is inside of this game object
+	_component->OnUndock();
+
 	vector< kComponent* > alive;
 	for( unsigned int i = 0; i < m_Components.size(); ++i )
 	{

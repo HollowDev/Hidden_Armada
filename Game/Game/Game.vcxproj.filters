@@ -94,6 +94,12 @@
     <ClCompile Include="code\engine\kRenderParams.cpp">
       <Filter>engine\renderer\core</Filter>
     </ClCompile>
+    <ClCompile Include="code\engine\kCollisionComponent.cpp">
+      <Filter>engine\components</Filter>
+    </ClCompile>
+    <ClCompile Include="code\engine\kCollisionSystem.cpp">
+      <Filter>engine\collision</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="code\engine\windows.h">
@@ -170,6 +176,15 @@
     </ClInclude>
     <ClInclude Include="code\engine\memory_macros.h">
       <Filter>engine\third party</Filter>
+    </ClInclude>
+    <ClInclude Include="code\engine\kCollisionComponent.h">
+      <Filter>engine\components</Filter>
+    </ClInclude>
+    <ClInclude Include="code\engine\kCollisionSystem.h">
+      <Filter>engine\collision</Filter>
+    </ClInclude>
+    <ClInclude Include="code\engine\kCollisionResult.h">
+      <Filter>engine\collision</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

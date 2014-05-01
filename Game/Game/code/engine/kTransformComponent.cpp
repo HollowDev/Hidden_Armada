@@ -38,6 +38,23 @@ kTransformComponent::~kTransformComponent( void )
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+Desc: Called when the component is docked
+Params:
+	_owner - the owner to set for this component
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+void kTransformComponent::OnDock( kGameObject* _owner )
+{
+	m_Owner = _owner;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+Desc: Called when the component is undocked from it's owner
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+void kTransformComponent::OnUndock( void )
+{
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 Desc: Updates the transform component
 Params:
 	_timing - the time that has passed since the last frame

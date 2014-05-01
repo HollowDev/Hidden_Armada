@@ -5,6 +5,7 @@
 enum ObjectType
 {
 	RTTI_kTransformComponent = 0,
+	RTTI_kCollisionComponent,
 	RTTI_kAniminstance,
 	RTTI_kGameObject,
 
