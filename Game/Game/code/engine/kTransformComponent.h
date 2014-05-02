@@ -19,6 +19,8 @@ public:
 						 D3DXVECTOR2 _scale, 
 						 float _rotation );
 	~kTransformComponent( void );
+
+	virtual void Release( void ) {}
 	
 	virtual void OnDock( kGameObject* _owner );
 	virtual void OnUndock( void );

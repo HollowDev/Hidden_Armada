@@ -6,6 +6,8 @@
 #include "kCollisionLibrary.h"
 #include "kGameObject.h"
 
+#include "kDebugDraw.h"
+
 kCollisionSystem g_CollisionSystem;
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -14,6 +16,7 @@ Desc: Constructor
 kCollisionSystem::kCollisionSystem( void )
 {
 	m_CheckCollision = true;
+	m_DebugRender = new kDebugDraw();
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -59,7 +62,12 @@ void kCollisionSystem::Update( float _timing )
 				collider2->OnCollision(&result2);
 			}
 		}
+
+		m_DebugRender->DrawCollider( collider1->GetVolume() );
 	}
+
+	m_DebugRender->Update( _timing );
+	m_DebugRender->ClearDrawList();
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

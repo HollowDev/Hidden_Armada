@@ -39,12 +39,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)\Lib\directx9\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)\Lib\directx9\Lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\Lib\directx9\Include;$(SolutionDir)\Lib\fmod\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\Lib\directx9\Lib\x86;$(SolutionDir)\Lib\fmod\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)\Lib\directx9\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)\Lib\directx9\Lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\Lib\directx9\Include;$(SolutionDir)\Lib\fmod\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\Lib\directx9\Lib\x86;$(SolutionDir)\Lib\fmod\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -53,6 +53,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>fmodex_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -66,6 +67,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>fmodex_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -87,6 +89,7 @@
     <ClCompile Include="code\engine\kTransformComponent.cpp" />
     <ClCompile Include="code\engine\kVertexBuffer.cpp" />
     <ClCompile Include="code\engine\kWinApp.cpp" />
+    <ClCompile Include="code\src\BaseObject.cpp" />
     <ClCompile Include="code\src\TestState.cpp" />
     <ClCompile Include="code\WinMain.cpp" />
   </ItemGroup>
@@ -120,6 +123,7 @@
     <ClInclude Include="code\engine\kWinApp.h" />
     <ClInclude Include="code\engine\memory_macros.h" />
     <ClInclude Include="code\engine\windows.h" />
+    <ClInclude Include="code\src\BaseObject.h" />
     <ClInclude Include="code\src\TestState.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

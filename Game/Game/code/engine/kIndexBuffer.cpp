@@ -19,7 +19,7 @@ Desc: Destructor
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 kIndexBuffer::~kIndexBuffer( void )
 {
-	SAFE_DELETE( m_Buffer );
+	SAFE_RELEASE( m_Buffer );
 	SAFE_DELETE( m_Indices );
 	m_NumIndices = 0;
 }

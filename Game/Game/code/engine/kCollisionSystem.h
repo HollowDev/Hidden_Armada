@@ -11,9 +11,12 @@ Desc: Handles all collision in the game. Every kCollisionComponent is registered
 	  collision occurs it calls the objects func* to let it know.
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 class kCollisionComponent;
+class kDebugDraw;
 class kCollisionSystem
 {
 	bool m_CheckCollision;
+	bool m_RenderCollision;
+	kDebugDraw* m_DebugRender;
 	vector< kCollisionComponent* > m_Colliders;
 
 public:
@@ -27,9 +30,11 @@ public:
 	void UnregisterCollider( kCollisionComponent* _collider );
 
 	// Accessors
-	inline bool GetCheckCollision( void ) { return m_CheckCollision; }
+	inline bool GetCheckCollision( void )	{ return m_CheckCollision;	}
+	inline bool GetRenderCollision( void )	{ return m_RenderCollision; }
 	// Mutators
-	inline void SetCheckCollision( bool _checkCollision ) { m_CheckCollision = _checkCollision; }
+	inline void SetCheckCollision( bool _checkCollision )	{ m_CheckCollision = _checkCollision;	}
+	inline void SetRenderCollision( bool _renderCollision ) { m_RenderCollision = _renderCollision; }
 };
 
 extern kCollisionSystem g_CollisionSystem;

@@ -46,6 +46,9 @@
     <Filter Include="engine\math">
       <UniqueIdentifier>{26a2b88a-1bc1-42ac-821a-57a855642b41}</UniqueIdentifier>
     </Filter>
+    <Filter Include="game\objects">
+      <UniqueIdentifier>{ca447312-e2f9-4df4-9ef6-686986251df3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="code\WinMain.cpp" />
@@ -105,6 +108,9 @@
     </ClCompile>
     <ClCompile Include="code\engine\k2DFoundationStack.cpp">
       <Filter>engine\math</Filter>
+    </ClCompile>
+    <ClCompile Include="code\src\BaseObject.cpp">
+      <Filter>game\objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -197,6 +203,9 @@
     </ClInclude>
     <ClInclude Include="code\engine\kVertexFormat.h">
       <Filter>engine\renderer\core</Filter>
+    </ClInclude>
+    <ClInclude Include="code\src\BaseObject.h">
+      <Filter>game\objects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

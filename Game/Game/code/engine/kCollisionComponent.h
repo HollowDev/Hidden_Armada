@@ -31,11 +31,13 @@ public:
 	void MakeRay( float _offsetX, float _offsetY, float _dirX, float _dirY );
 	void MakeCapsule( float _offsetX, float _offsetY, float _endX, float _endY, float _radius );
 
-
 	// Accessors
-	inline kCollisionVolume* GetVolume( void ) const { return m_Volume; }
+	inline kCollisionVolume* GetVolume( void ) const	{ return m_Volume;		}
+	inline kCollisionCallback GetCallback( void ) const { return m_Callback;	}
+
 	// Mutators
-	inline void SetVolume( kCollisionVolume* _volume ) { m_Volume = _volume; }
+	inline void SetVolume( kCollisionVolume* _volume )		{ m_Volume = _volume;		}
+	inline void SetCallback( kCollisionCallback _callback ) { m_Callback = _callback;	}
 };
 
 #endif

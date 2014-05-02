@@ -14,6 +14,7 @@ class kComponent;
 class kTransformComponent;
 class kGameObject : public kObject
 {
+protected:
 	kGameObject*			m_Parent;
 	vector< kGameObject* >	m_Children;
 	vector< kComponent* >	m_Components;

@@ -58,8 +58,8 @@ template<typename VERTEX>
 kVertexBuffer<VERTEX>::~kVertexBuffer( void )
 {
 	SAFE_DELETE( m_Verts );
-	SAFE_DELETE( m_Decl );
-	SAFE_DELETE( m_Buffer );
+	SAFE_RELEASE( m_Decl );
+	SAFE_RELEASE( m_Buffer );
 	m_NumVerts = 0;
 }
 

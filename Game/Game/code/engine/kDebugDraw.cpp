@@ -6,6 +6,8 @@
 #include "kIndexBuffer.h"
 #include "kRenderParams.h"
 
+#include "kCollisionVolumes.h"
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 Desc: Constructor
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -108,6 +110,18 @@ void kDebugDraw::DrawRect( float _posX, float _posY, float _halfWidth, float _ha
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+Desc: Construct a debug rect to draw using g_RenderPassDebug
+Params:
+	_rect - the rect to draw
+	_solid - should this be made of lines or be filled?
+	_color - the color to render this object
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+void kDebugDraw::DrawRect( kRECT* _rect, bool _solid, D3DXVECTOR4 _color )
+{
+	DrawRect( _rect->GetPos().x, _rect->GetPos().y, _rect->m_HalfWidth, _rect->m_HalfHeight, _solid, _color );
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 Desc: Construct a debug line to draw using g_RenderPassDebug
 Params:
 	_startX - the starting pos of the line on the X axis
@@ -143,7 +157,7 @@ void kDebugDraw::DrawLine( float _startX, float _startY, float _endX, float _end
 	m_DrawList.push_back( debugDraw );
 	g_RenderPassDebug.AddRenderObject( debugDraw );
 }
-	
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 Desc: Construct a debug circle to draw using g_RenderPassDebug
 Params:
@@ -215,4 +229,24 @@ void kDebugDraw::DrawCircle( float _posX, float _posY, float _radius, bool _soli
 
 	m_DrawList.push_back( debugDraw );
 	g_RenderPassDebug.AddRenderObject( debugDraw );
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+Desc: Construct a debug circle to draw using g_RenderPassDebug
+Params:
+	_circle - the circle to create the debug info off of
+	_solid - should this be made of lines or be filled?
+	_color - the color to render this object
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+void kDebugDraw::DrawCircle( kCircle* _circle, bool _solid, D3DXVECTOR4 _color )
+{
+	DrawCircle( _circle->GetPos().x, _circle->GetPos().y, _circle->m_Radius, _solid, _color );
+}
+	
+void kDebugDraw::DrawCollider( kCollisionVolume* _volume, bool _solid, D3DXVECTOR4 _color )
+{
+	if( _volume->GetType() == Type_RECT )
+		DrawRect( (kRECT*)_volume, _solid, _color );
+	else if( _volume->GetType() == Type_Circle )
+		DrawCircle( (kCircle*)_volume, _solid, _color );
 }
