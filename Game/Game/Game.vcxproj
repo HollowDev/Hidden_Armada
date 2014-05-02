@@ -69,6 +69,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="code\engine\k2DFoundationStack.cpp" />
     <ClCompile Include="code\engine\kCamera.cpp" />
     <ClCompile Include="code\engine\kCollisionComponent.cpp" />
     <ClCompile Include="code\engine\kCollisionLibrary.cpp" />
@@ -91,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="code\engine\directx9.h" />
+    <ClInclude Include="code\engine\k2DFoundationStack.h" />
     <ClInclude Include="code\engine\kBaseState.h" />
     <ClInclude Include="code\engine\kCamera.h" />
     <ClInclude Include="code\engine\kCollisionComponent.h" />
@@ -114,6 +116,7 @@
     <ClInclude Include="code\engine\kTimer.h" />
     <ClInclude Include="code\engine\kTransformComponent.h" />
     <ClInclude Include="code\engine\kVertexBuffer.h" />
+    <ClInclude Include="code\engine\kVertexFormat.h" />
     <ClInclude Include="code\engine\kWinApp.h" />
     <ClInclude Include="code\engine\memory_macros.h" />
     <ClInclude Include="code\engine\windows.h" />

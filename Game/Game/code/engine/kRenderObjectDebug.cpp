@@ -51,7 +51,7 @@ void kRenderObjectDebug::Render( kRenderPass* _renderPass, ID3DXEffect* _effect 
 		numPrimitives = numIndices / 3;
 
 	kD3D9Handler::m_Device->SetVertexDeclaration( decl );
-	kD3D9Handler::m_Device->SetStreamSource( 0, vbuffer, 0, sizeof(Vertex_PosTex) );
+	kD3D9Handler::m_Device->SetStreamSource( 0, vbuffer, 0, sizeof(kVertex_Pos) );
 	kD3D9Handler::m_Device->SetIndices( ibuffer );
 	kD3D9Handler::m_Device->DrawIndexedPrimitive( m_PrimitiveType, 0, 0, numVerts, 0, numPrimitives );
 }

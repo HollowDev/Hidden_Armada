@@ -6,9 +6,7 @@
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 Desc: Mesh is a model that is generated at runtime.
-* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-class kVertexBuffer;
-class kIndexBuffer;
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *//*
 class kMesh
 {
 	kVertexBuffer* m_VertexBuffer;
@@ -18,5 +16,6 @@ public:
 	~kMesh( void );
 
 };
+*/
 
 #endif

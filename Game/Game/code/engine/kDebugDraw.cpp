@@ -58,19 +58,19 @@ void kDebugDraw::DrawRect( float _posX, float _posY, float _halfWidth, float _ha
 {
 	// Initialize the buffers
 	kRenderObjectDebug* debugDraw = new kRenderObjectDebug();
-	kVertexBuffer* vertexBuffer = new kVertexBuffer();
+	kVertexBuffer<kVertex_Pos>* vertexBuffer = new kVertexBuffer<kVertex_Pos>();
 	kIndexBuffer* indexBuffer = new kIndexBuffer();
 	
 	// Construct the vertex buffer and index buffer
 	if( !_solid )
 	{
-		Vertex_PosTex* verts = vertexBuffer->Lock( 4 );
+		kVertex_Pos* verts = vertexBuffer->Lock( 4 );
 		unsigned int* indices = indexBuffer->Lock( 8 );
 		{
-			verts[0] = Vertex_PosTex( _posX - _halfWidth,	_posY + _halfHeight,	0.0f, 0.0f, 0.0f );	//	 0 ---- 1
-			verts[1] = Vertex_PosTex( _posX + _halfWidth,	_posY + _halfHeight,	0.0f, 1.0f, 0.0f );	//	 |	 /	|
-			verts[2] = Vertex_PosTex( _posX - _halfWidth,	_posY - _halfHeight,	0.0f, 0.0f, 1.0f );	//	 |  /	|
-			verts[3] = Vertex_PosTex( _posX + _halfWidth,	_posY - _halfHeight,	0.0f, 1.0f, 1.0f );	//	 2 ---- 3
+			verts[0] = kVertex_Pos( _posX - _halfWidth,	_posY + _halfHeight,	0.0f );	//	 0 ---- 1
+			verts[1] = kVertex_Pos( _posX + _halfWidth,	_posY + _halfHeight,	0.0f );	//	 |	 /	|
+			verts[2] = kVertex_Pos( _posX - _halfWidth,	_posY - _halfHeight,	0.0f );	//	 |  /	|
+			verts[3] = kVertex_Pos( _posX + _halfWidth,	_posY - _halfHeight,	0.0f );	//	 2 ---- 3
 
 			indices[0] = 0; indices[1] = 1; 
 			indices[2] = 1; indices[3] = 3;
@@ -82,13 +82,13 @@ void kDebugDraw::DrawRect( float _posX, float _posY, float _halfWidth, float _ha
 	}
 	else
 	{
-		Vertex_PosTex* verts = vertexBuffer->Lock( 4 );
+		kVertex_Pos* verts = vertexBuffer->Lock( 4 );
 		unsigned int* indices = indexBuffer->Lock( 6 );
 		{
-			verts[0] = Vertex_PosTex( _posX - _halfWidth,	_posY + _halfHeight,	0.0f, 0.0f, 0.0f );	//	 0 ---- 1
-			verts[1] = Vertex_PosTex( _posX + _halfWidth,	_posY + _halfHeight,	0.0f, 1.0f, 0.0f );	//	 |	 /	|
-			verts[2] = Vertex_PosTex( _posX - _halfWidth,	_posY - _halfHeight,	0.0f, 0.0f, 1.0f );	//	 |  /	|
-			verts[3] = Vertex_PosTex( _posX + _halfWidth,	_posY - _halfHeight,	0.0f, 1.0f, 1.0f );	//	 2 ---- 3
+			verts[0] = kVertex_Pos( _posX - _halfWidth,	_posY + _halfHeight,	0.0f );	//	 0 ---- 1
+			verts[1] = kVertex_Pos( _posX + _halfWidth,	_posY + _halfHeight,	0.0f );	//	 |	 /	|
+			verts[2] = kVertex_Pos( _posX - _halfWidth,	_posY - _halfHeight,	0.0f );	//	 |  /	|
+			verts[3] = kVertex_Pos( _posX + _halfWidth,	_posY - _halfHeight,	0.0f );	//	 2 ---- 3
 
 			indices[0] = 0; indices[1] = 1; indices[2] = 2;
 			indices[3] = 1; indices[4] = 3; indices[5] = 2;
@@ -119,16 +119,16 @@ Params:
 void kDebugDraw::DrawLine( float _startX, float _startY, float _endX, float _endY, D3DXVECTOR4 _color )
 {
 	// Initialize the buffers
-	kVertexBuffer* vertexBuffer = new kVertexBuffer();
+	kVertexBuffer<kVertex_Pos>* vertexBuffer = new kVertexBuffer<kVertex_Pos>();
 	kIndexBuffer* indexBuffer = new kIndexBuffer();
 	
 	// Construct the vertex buffer and index buffer
-	Vertex_PosTex* verts = vertexBuffer->Lock( 2 );
+	kVertex_Pos* verts = vertexBuffer->Lock( 2 );
 	unsigned int* indices = indexBuffer->Lock( 2 );
 	{
 		//	 0 ---- 1
-		verts[0] = Vertex_PosTex( _startX, _startY, 0.0f, 0.0f, 0.0f );
-		verts[1] = Vertex_PosTex( _endX, _endY, 0.0f, 1.0f, 0.0f );
+		verts[0] = kVertex_Pos( _startX, _startY, 0.0f );
+		verts[1] = kVertex_Pos( _endX, _endY, 0.0f );
 
 		indices[0] = 0; indices[1] = 1; 
 	}
@@ -160,13 +160,13 @@ void kDebugDraw::DrawCircle( float _posX, float _posY, float _radius, bool _soli
 
 	// Initialize the buffers
 	kRenderObjectDebug* debugDraw = new kRenderObjectDebug();
-	kVertexBuffer* vertexBuffer = new kVertexBuffer();
+	kVertexBuffer<kVertex_Pos>* vertexBuffer = new kVertexBuffer<kVertex_Pos>();
 	kIndexBuffer* indexBuffer = new kIndexBuffer();
 	
 	// Construct the vertex buffer and index buffer
 	if( !_solid )
 	{
-		Vertex_PosTex* verts = vertexBuffer->Lock( num_segments*2 );
+		kVertex_Pos* verts = vertexBuffer->Lock( num_segments*2 );
 		unsigned int* indices = indexBuffer->Lock( num_segments*2 );
 		{
 			for( int i = 0; i < num_segments; ++i ) 
@@ -175,8 +175,8 @@ void kDebugDraw::DrawCircle( float _posX, float _posY, float _radius, bool _soli
 
 				float const t1 = 2.0f * float(D3DX_PI) * (float)i / (float)num_segments;
 				float const t2 = 2.0f * float(D3DX_PI) * (float)(i+1) / (float)num_segments;
-				verts[index] = Vertex_PosTex( sin(t1) * _radius + _posX, cos(t1) * _radius + _posY, 0.0f, 0.0f, 0.0f );
-				verts[index+1] = Vertex_PosTex( sin(t2) * _radius + _posX, cos(t2) * _radius + _posY, 0.0f, 0.0f, 0.0f );
+				verts[index]   = kVertex_Pos( sin(t1) * _radius + _posX, cos(t1) * _radius + _posY, 0.0f );
+				verts[index+1] = kVertex_Pos( sin(t2) * _radius + _posX, cos(t2) * _radius + _posY, 0.0f );
 				indices[index] = index;
 				indices[index+1] = index+1;
 			}
@@ -186,7 +186,7 @@ void kDebugDraw::DrawCircle( float _posX, float _posY, float _radius, bool _soli
 	}
 	else
 	{
-		Vertex_PosTex* verts = vertexBuffer->Lock( num_segments*3 );
+		kVertex_Pos* verts = vertexBuffer->Lock( num_segments*3 );
 		unsigned int* indices = indexBuffer->Lock( num_segments*3 );
 		{
 			for( int i = 0; i < num_segments; ++i ) 
@@ -195,9 +195,9 @@ void kDebugDraw::DrawCircle( float _posX, float _posY, float _radius, bool _soli
 
 				float const t1 = 2.0f * float(D3DX_PI) * (float)i / (float)num_segments;
 				float const t2 = 2.0f * float(D3DX_PI) * (float)(i+1) / (float)num_segments;
-				verts[index] = Vertex_PosTex( sin(t1) * _radius + _posX, cos(t1) * _radius + _posY, 0.0f, 0.0f, 0.0f );
-				verts[index+1] = Vertex_PosTex( sin(t2) * _radius + _posX, cos(t2) * _radius + _posY, 0.0f, 0.0f, 0.0f );
-				verts[index+2] = Vertex_PosTex( _posX, _posY, 0.0f, 0.0f, 0.0f );
+				verts[index]   = kVertex_Pos( sin(t1) * _radius + _posX, cos(t1) * _radius + _posY, 0.0f );
+				verts[index+1] = kVertex_Pos( sin(t2) * _radius + _posX, cos(t2) * _radius + _posY, 0.0f );
+				verts[index+2] = kVertex_Pos( _posX, _posY, 0.0f );
 				indices[index] = index;
 				indices[index+1] = index+1;
 				indices[index+2] = index+2;
